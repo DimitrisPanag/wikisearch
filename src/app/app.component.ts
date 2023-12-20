@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
+import { WikipediaService } from './wikipedia.service';
 import { PageListComponent } from './page-list/page-list.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
 
@@ -12,7 +13,10 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
+  constructor(private wikipedia: WikipediaService) {}
+
   onTerm(term: string){
-    console.log('I am the app and this is the term', term);
+    const results = this.wikipedia.search(term);
+    console.log(results);
   }
 }
