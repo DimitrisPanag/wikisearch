@@ -12,5 +12,7 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'wikisearch';
+  onTerm(term: string){
+    console.log('I am the app and this is the term', term);
+  }
 }
