@@ -1,1 +1,21 @@
-<p>page-list works!</p>
+<table class="table is-striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Word Count</th>
+            <th>Snippet</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let page of pages">
+            <th>
+                <a target="_blank"
+                 [href]="'https://en.wikipedia.org?curid=' + page.pageid">
+                  {{ page.title }}
+                </a>
+            </th>
+            <th>{{ page.wordcount }}</th>
+            <th [innerHTML]="page.snippet"></th>
+        </tr>
+    </tbody>
+</table>
